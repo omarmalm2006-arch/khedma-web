@@ -1,0 +1,3 @@
+# Ignore database credentials
+backend/config/db.php
+backend/config/ca.pem
