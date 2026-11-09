@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Khedma - تسجيل الدخول</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style/style.css" />
+    <link rel="stylesheet" href="../style/register.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="logo">
+        <img src="../assets/icon/logo.svg" alt="Khedma Logo" />
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#">الرئيسية</a></li>
+          <li><a href="#">ابحث عن فني</a></li>
+          <li><a href="#">تواصل معنا</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-spacer"></div>
+    </header>
+
+    <main class="main-content">
+      <section class="right-section">
+        <div class="robot">
+          <img src="../assets/img/robot.png" alt="Khedma robot" />
+        </div>
+
+        <div class="right">
+          <img
+            src="../assets/icon/logo.svg"
+            alt="Khedma Logo"
+            class="white-logo"
+          />
+
+          <div class="welcome-text">
+            <h2>أهلاً بعودتك<span class="dot">.</span></h2>
+            <p>خدمات البيت المضمونة<br />في مكان واحد</p>
+            <svg class="swoosh" viewBox="0 0 160 20" aria-hidden="true">
+              <path
+                d="M2 17 C 45 5, 105 2, 158 5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section class="login-form-container">
+        <div class="form-header">
+          <div class="status-text">
+            <span class="status-dot"></span>
+            مستخدمنا
+          </div>
+          <h2>تسجيل الدخول</h2>
+          <p>ادخل بياناتك عشان تكمل معانا.</p>
+        </div>
+
+        <div id="form-alert" class="form-alert" role="alert" hidden></div>
+
+        <form id="login-form" class="login-form" novalidate>
+          <label for="email">البريد الإلكتروني</label>
+          <div class="input-wrap">
+            <svg
+              class="input-icon"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13Zm2.2.5L12 12.2 19.8 6H4.2ZM20 7.6l-7.4 5.9a1 1 0 0 1-1.2 0L4 7.6V18h16V7.6Z"
+              />
+            </svg>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="name@example.com"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+          <label for="pass">كلمة المرور</label>
+          <div class="input-wrap">
+            <svg
+              class="input-icon"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M17 9h-1V7a4 4 0 0 0-8 0v2H7a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2ZM10 7a2 2 0 0 1 4 0v2h-4V7Zm2 10a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z"
+              />
+            </svg>
+            <input
+              type="password"
+              id="pass"
+              name="password"
+              placeholder="••••••••"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+
+          <div class="forgot-password">
+            <a href="#">نسيت كلمة المرور؟</a>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <span>دخول</span>
+            <img src="../assets/icon/move-left.svg" alt="" />
+          </button>
+        </form>
+
+        <div class="divider"><span>أو</span></div>
+
+        <div class="signup-link">
+          <p>
+            لسه معندكش حساب؟
+            <a href="register.html">أنشئ حساب</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>جميع الحقوق محفوظة <span dir="ltr">© 2026 Khedma</span></p>
+      <ul>
+        <li><a href="#">سياسة الخصوصية</a></li>
+        <li><a href="#">الشروط والأحكام</a></li>
+        <li><a href="#">المساعدة</a></li>
+      </ul>
+    </footer>
+
+    <script src="../js/login.js"></script>
+  </body>
+</html>
