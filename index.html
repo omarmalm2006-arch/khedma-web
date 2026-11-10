@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمة | كل بيت يستاهل حد أمين</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="top-bar">
+        <p>✨ الفني المناسب لبيتك... على بعد خطوة <a href="search.html">اكتشف خدمة</a></p>
+    </div>
+
+    <header>
+        <nav class="navbar">
+            <div class="nav-right">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon"><i class="fa-solid fa-house-chimney-user"></i></span>
+                    <div class="logo-text">
+                        <span class="brand-name">خدمة</span>
+                        <span class="brand-tagline">كل بيت يستاهل حد أمين</span>
+                    </div>
+                </a>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> الرئيسية</a></li>
+                <li><a href="search.html"><i class="fa-solid fa-magnifying-glass"></i> ابحث عن فني</a></li>
+                <li><a href="#categories"><i class="fa-regular fa-heart"></i> المفضلة <span class="badge">1</span></a></li>
+            </ul>
+
+            <div class="nav-left">
+                <div class="user-role-toggle">
+                    <span class="role-btn active">عميل</span>
+                    <span class="role-btn">مقدم خدمة</span>
+                    <span class="role-btn">إدارة</span>
+                </div>
+                <a href="#" class="icon-btn"><i class="fa-regular fa-bell"></i></a>
+                <a href="#" class="login-button"><i class="fa-regular fa-user"></i> دخول</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <span class="hero-badge">● بيتك في أيد أمينة</span>
+                    <h1>لما البيت يحتاج،<br>خدمة توصّلك بالصح.</h1>
+                    <p>فنيين موثوقين، أسعار واضحة، وشغل يريح بالك.<br>كل خدماتك بيتك في مكان واحد.</p>
+                    
+                    <div class="hero-search">
+                        <div class="search-input-group">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" placeholder="بتدور على إيه؟ سباك، كهربائي...">
+                        </div>
+                        <button type="button" onclick="window.location.href='search.html'" class="hero-search-btn">
+                            دور على فني <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                    </div>
+
+                    <div class="hero-features">
+                        <span><i class="fa-solid fa-check"></i> فنيين معتمدين ومقيمين</span>
+                        <span><i class="fa-solid fa-star"></i> تقييمات حقيقية</span>
+                        <span><i class="fa-solid fa-shield-halved"></i> أسعار محددة</span>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <div class="verified-badge">
+                        <div class="verified-icon"><i class="fa-solid fa-circle-check"></i></div>
+                        <div class="verified-text">
+                            <strong>تم التحقق من الفنيين</strong>
+                            <small>من الهوية والخبرة</small>
+                        </div>
+                    </div>
+                    <div class="stat-badge">
+                        <strong>+2,400</strong>
+                        <small>عملية صيانة ناجحة</small>
+                    </div>
+                    <img src="assests/images/hero.jpeg" alt="فني خدمة">
+                </div>
+            </div>
+        </section>
+
+        <section class="categories" id="categories">
+            <div class="section-container">
+                <div class="section-header-flex">
+                    <div class="section-title">
+                        <span class="sub-title">اختار اللي محتاجه</span>
+                        <h2>خدمات لكل ركن في بيتك</h2>
+                    </div>
+                    <a href="search.html" class="view-all-link">كل الخدمات ←</a>
+                </div>
+
+                <div class="categories-grid">
+                    <a href="search.html?job=سباك" class="category-card">
+                        <div class="icon-box blue-bg"><i class="fa-solid fa-faucet-drip"></i></div>
+                        <h3>سباكة</h3>
+                    </a>
+                    <a href="search.html?job=كهربائي" class="category-card">
+                        <div class="icon-box yellow-bg"><i class="fa-solid fa-bolt"></i></div>
+                        <h3>كهرباء</h3>
+                    </a>
+                    <a href="search.html?job=نجار" class="category-card">
+                        <div class="icon-box orange-bg"><i class="fa-solid fa-key"></i></div>
+                        <h3>نجارة</h3>
+                    </a>
+                    <a href="search.html?job=نقاش" class="category-card">
+                        <div class="icon-box purple-bg"><i class="fa-solid fa-paint-roller"></i></div>
+                        <h3>نظافة</h3>
+                    </a>
+                    <a href="search.html?job=تكييف" class="category-card">
+                        <div class="icon-box green-bg"><i class="fa-solid fa-snowflake"></i></div>
+                        <h3>تكييف</h3>
+                    </a>
+                    <a href="search.html" class="category-card">
+                        <div class="icon-box teal-bg"><i class="fa-solid fa-wrench"></i></div>
+                        <h3>صيانة عامة</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="workers" id="workers">
+            <div class="section-container">
+                <div class="section-header-flex">
+                    <div class="section-title">
+                        <span class="sub-title">أعلى ترشيحات لك</span>
+                        <h2>فنيين عليهم الكلام</h2>
+                    </div>
+                    <a href="search.html" class="view-all-link">شوف الكل ←</a>
+                </div>
+
+                <div class="workers-grid">
+                    <div class="worker-card">
+                        <div class="card-head">
+                            <span class="price-text">يبدأ من <strong>200 ج.م</strong></span>
+                            <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <div class="card-profile">
+                            <img src="assests/images/كهربائي.jpeg" alt="أحمد حسن">
+                            <div class="profile-details">
+                                <h3>أحمد حسن <span class="online-dot"></span></h3>
+                                <p class="job-tag">كهربائي منازل</p>
+                                <p class="location-tag"><i class="fa-solid fa-location-dot"></i> مدينة نصر، القاهرة</p>
+                            </div>
+                        </div>
+                        <div class="card-stats">
+                            <span><i class="fa-solid fa-star star"></i> <strong>4.9</strong> (128 تقييم)</span>
+                            <span><i class="fa-solid fa-briefcase"></i> 6 سنين خبرة</span>
+                        </div>
+                        <div class="card-action">
+                            <span class="available-status">● متاح دلوقتي</span>
+                            <a href="search.html" class="profile-link">عرض الملف ←</a>
+                        </div>
+                    </div>
+
+                    <div class="worker-card">
+                        <div class="card-head">
+                            <span class="price-text">يبدأ من <strong>180 ج.م</strong></span>
+                            <button class="like-btn liked"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <div class="card-profile">
+                            <img src="assests/images/سباك.jpeg" alt="محمد علي">
+                            <div class="profile-details">
+                                <h3>محمد علي <span class="online-dot"></span></h3>
+                                <p class="job-tag">سباكة وصيانة</p>
+                                <p class="location-tag"><i class="fa-solid fa-location-dot"></i> المعادي، القاهرة</p>
+                            </div>
+                        </div>
+                        <div class="card-stats">
+                            <span><i class="fa-solid fa-star star"></i> <strong>4.8</strong> (95 تقييم)</span>
+                            <span><i class="fa-solid fa-briefcase"></i> 8 سنين خبرة</span>
+                        </div>
+                        <div class="card-action">
+                            <span class="available-status">● متاح دلوقتي</span>
+                            <a href="search.html" class="profile-link">عرض الملف ←</a>
+                        </div>
+                    </div>
+
+                    <div class="worker-card">
+                        <div class="card-head">
+                            <span class="price-text">يبدأ من <strong>250 ج.م</strong></span>
+                            <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <div class="card-profile">
+                            <img src="assests/images/نجار.jpeg" alt="حسام نبيل">
+                            <div class="profile-details">
+                                <h3>حسام نبيل <span class="online-dot"></span></h3>
+                                <p class="job-tag">أثاث ونجارة</p>
+                                <p class="location-tag"><i class="fa-solid fa-location-dot"></i> شبرا الخيمة، القليوبية</p>
+                            </div>
+                        </div>
+                        <div class="card-stats">
+                            <span><i class="fa-solid fa-star star"></i> <strong>4.7</strong> (74 تقييم)</span>
+                            <span><i class="fa-solid fa-briefcase"></i> 5 سنين خبرة</span>
+                        </div>
+                        <div class="card-action">
+                            <span class="available-status">● مشغول حالياً</span>
+                            <a href="search.html" class="profile-link">عرض الملف ←</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="banner-cta">
+            <div class="section-container">
+                <div class="cta-box">
+                    <div class="cta-content">
+                        <span class="cta-subtitle">شغل أكثر وثقة أكبر</span>
+                        <h2>إنت فني شاطر؟ مكانك معانا.</h2>
+                        <p>وصل اسمك لأكبر عدد من العملاء وسجل شغلك معنا بآلية منظمة.</p>
+                    </div>
+                    <div class="cta-action">
+                        <a href="#" class="cta-btn">انضم كـفني في خدمة ←</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

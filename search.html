@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khedma - خدماتك بسهولة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/search.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <a href="index.html" class="logo">خدمة</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="search.html" class="active">ابحث عن فني</a></li>
+                <li><a href="index.html#categories">الخدمات</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="#" class="login-button">دخول</a>
+            </div>
+        </nav>
+    </header>
+    <main class="search-page-container">
+        <div class="search-header-title">
+            <p class="breadcrumb">الرئيسيةالبحث</p>
+            <h1>ابحث عن فني</h1>
+            <p class="subtitle">اختار الخدمة واحنا نوصلك بأحسن ناس</p>
+        </div>
+        <div class="search-layout">
+            <aside class="filters-sidebar">
+                <div class="filter-header">
+                    <h3><i class="fa-solid fa-sliders"></i>الفلاتر</h3>
+                    <button type="button" id="reset-filters" class="reset-btn">اعادة الضبط</button>
+                </div>
+                <div class="filter-group">
+                    <div class="search-input-wrapper">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="search-keyword" placeholder="ابحث بالأسم او الخدمة">
+
+                    </div>
+
+                </div>
+                <div class="filter-group">
+                    <label for="job-select">نوع الخدمة</label>
+                    <select id="job-select">
+                        <option value="all">كل الخدمات</option>
+                        <option value="كهرباء">كهربائي</option>
+                        <option value="سباكة">سباك</option>
+                        <option value="نجارة">نجار</option>
+                        <option value="نقاشة">نقاش</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="location-select">المكان</label>
+                    <select id="location-select">
+                        <option value="all">كل المحافظات</option>
+                        <option value="القاهرة">القاهرة</option>
+                        <option value="الجيزة">الجيزة</option>
+                        <option value="القليوبية">القليوبية</option>
+
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>أعلي سعر للزيارة <span id="price-value">600</span>ج.م</label>
+                    <input type="range" id="price-range" min="50" max="1000" step="50" value="600">
+                </div>
+                <div class="filter-group">
+                    <label>التقييم</label>
+                    <div class="rating-options">
+                        <button type="button" class="rating-btn active" date-rating="all">الكل</button>
+                        <button type="button" class="rating-btn" data-rating="4">+4 ⭐</button>
+                        <button type="button" class="rating-btn" data-rating="4.5">+4.5 ⭐</button>
+                    </div>
+                </div>
+                <button type="button" id="apply-filters-btn" class="apply-btn">عرض النتائج</button>
+            </aside>
+            <section class="results-section">
+                <div class="results-header">
+                    <span class="results-count"><strong id="count-number">4</strong>فنيين متاحين لخدمتك</span>
+                    <div class="sort-wrapped">
+                        <select id="sort-select">
+                            <option value="rating">الأعلي تقييم</option>
+                            <option value="price-low">الأقل سعر</option>
+                            <option value="price-high">الأعلي سعر</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="workers-list-grid" id="workers-list">
+                    <div class="search-worker-card" data-job="كهربائي" data-location="القاهرة" data-price="200" data-rating="4.9">
+                        <div class="card-top">
+                            <span class="price-tag">يبدأ من <strong>200 ج.م</strong></span>
+                            <button type="button" class="fav-btn" ><i class="fa-regular fa-heart"></i></button>
+
+                        </div>
+                        <div class="card-body">
+                            <img src="assests/images/كهربائي.jpeg" alt="فني">
+                            <div class="card-info">
+                                <h3>احمد حسن</h3>
+                                <p class="job-title">كهربائي منازل</p>
+                                <p class="location-text"><i class="fa-solid fa-location-dot"></i>مدينة نصر-القاهرة</p>
+                                <div class="rating-badge">
+                                    <span class="stars">⭐ 4.9</span>
+                                    <span class="reviews-count">(تقييم 128)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="status-online">●متاح دلوقتي </span>
+                            <a href="#" class="view-profile-btn">عرض الملف</a>
+                        </div>
+                    </div>
+                    <div class="search-worker-card" data-job="سباك" data-location="القاهرة" data-price="180" data-rating="4.8">
+                        <div class="card-top">
+                            <span class="price-tag">يبدأ من <strong>180ج.م</strong></span>
+                            <button type="button" class="fav-btn"><i class="fa-regular fa-heart"></i></button>
+
+                        </div>
+                        <div class="card-body">
+                            <img src="assests/images/سباك.jpeg" alt="فني">
+                            <div class="card-info">
+                                <h3>أحمد محمد</h3>
+                                <p class="job-title">سباك ممتاز</p>
+                                <p class="location-text"><i class="fa-solid fa-location-dot"></i>المعادي القاهرة</p>
+                                <div class="rating-badge">
+                                    <span class="stars">⭐ 4.8</span>
+                                    <span class="reviews-count">(تقييم 95)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="status-online">● متاح دلوقتي</span>
+                            <a href="#" class="view-profile-btn">عرض الملف</a>
+                        </div>
+                    </div>
+                    <div class="search-worker-card" data-job="نجار" data-location="القليوبية" data-price="250" data-rating="4.7">
+                        <div class="card-body">
+                            <img src="assests/images/نجار.jpeg" alt="فني">
+                            <div class="card-info">
+                                <h3>محمود حسن</h3>
+                                <p class="job-title">نجار موبيليا وتصليحات</p>
+                                <p class="location-text"><i class="fa-solid fa-location-dot"></i>بنها القليوبية</p>
+                                <div class="rating-badge">
+                                    <span class="stars">⭐ 4.7</span>
+                                    <span class="reviews-count">(تقييم 64)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="status-online">● متاح دلوقتي</span>
+                            <a href="#" class="view-profile-btn">عرض الملف</a>
+                        </div>
+                    </div>
+                    <div class="search-worker-card" data-job="نقاش" data-location="القاهرة" data-price="300" data-rating="4.6">
+                        <div class="card-top">
+                            <span class="price-tag">يبدأ من <strong>300ج.م</strong></span>
+                            <button type="button" class="fav-btn"><i class="fa-regular fa-heart"></i></button>
+
+                        </div>
+                        <div class="card-body">
+                            <img src="assests/images/نقاش.jpeg" alt="فني">
+                            <div class="card-info">
+                                <h3>ابراهيم حسن</h3>
+                                <p class="job-title">فني تشطيبات وديكور</p>
+                                <p class="location-text"><i class="fa-solid fa-location-dot"></i>التجمع القاهرة</p>
+                                <div class="rating-badge">
+                                    <span class="stars">⭐ 4.6</span>
+                                    <span class="reviews-count">(تقييم 40)</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card-footer">
+                            <span class="status-online">●متاح دلوقتي </span>
+                            <a href="#" class="view-profile-btn">عرض الملف</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="js/search.js"></script>
+</body>
+</html>
