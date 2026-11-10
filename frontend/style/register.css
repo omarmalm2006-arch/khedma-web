@@ -1,0 +1,143 @@
+.register-page .login-form-container {
+    justify-content: flex-start;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+.register-page .form-header {
+    margin-bottom: 14px;
+}
+.role-switch {
+    display: flex;
+    gap: 6px;
+    padding: 5px;
+    margin-bottom: 14px;
+    background-color: #eef4fc;
+    border-radius: 999px;
+}
+.role-btn {
+    flex: 1;
+    height: 40px;
+    border: none;
+    border-radius: 999px;
+    background: transparent;
+    color: #173B69;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.role-btn.active {
+    background-color: #0866C6;
+    color: #ffffff;
+}
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+.field {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+.login-form-container .register-form label {
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+.optional {
+    color: #7b8798;
+    font-weight: 600;
+    font-size: 12px;
+}
+.login-form-container .register-form .field input,
+.login-form-container .register-form .field select,
+.login-form-container .register-form .field textarea {
+    width: 100%;
+    height: 44px;
+    padding: 0 18px;
+    border: 1px solid #d5dce8;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 14px;
+    color: #173B69;
+    background-color: #ffffff;
+    outline: none;
+    transition: 0.2s;
+}
+.login-form-container .register-form .field textarea {
+    height: auto;
+    padding: 12px 18px;
+    border-radius: 20px;
+    resize: none;
+}
+.login-form-container .register-form .field input:focus,
+.login-form-container .register-form .field select:focus,
+.login-form-container .register-form .field textarea:focus {
+    border-color: #0866C6;
+    box-shadow: 0 0 0 3px rgba(8, 102, 198, 0.12);
+}
+.field.invalid input,
+.field.invalid select,
+.field.invalid textarea {
+    border-color: #d93025 !important;
+}
+.error-msg {
+    min-height: 0;
+    margin-top: 4px;
+    color: #d93025;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.worker-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.worker-fields[hidden] {
+    display: none;
+}
+.form-alert {
+    margin-bottom: 12px;
+    padding: 12px 16px;
+    border-radius: 14px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+.form-alert[hidden] {
+    display: none;
+}
+.form-alert.error {
+    background: #fdecea;
+    color: #b3261e;
+}
+.form-alert.success {
+    background: #e7f4ea;
+    color: #1e6b34;
+}
+.register-form .submit-btn {
+    margin-top: 6px;
+    height: 52px;
+    flex-shrink: 0;
+}
+.register-form .submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.register-page .signup-link {
+    margin-top: 16px;
+    flex-shrink: 0;
+}
+@media (max-width: 650px) {
+    .field-row {
+        grid-template-columns: 1fr;
+    }
+}
