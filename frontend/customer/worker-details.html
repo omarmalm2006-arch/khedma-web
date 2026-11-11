@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمة | تفاصيل الفني</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../customer/css/workers-details.css">
+    <link rel="stylesheet" href="../customer/css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-right">
+                <a href="../customer/index.html" class="logo">
+                    <span class="logo-icon"><img src="../customer/assests/icons/logo.svg" alt="logo"></span>
+                    <div class="logo-text">
+                        <span class="brand-name">خدمة</span>
+                        <span class="brand-tagline">كل بيت يستاهل حد أمين</span>
+                    </div>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> الرئيسية</a></li>
+                <li><a href="search.html"><i class="fa-solid fa-magnifying-glass"></i> ابحث عن فني</a></li>
+                <li><a href="index.html#categories"><i class="fa-regular fa-heart"></i> المفضلة <span class="badge">1</span></a></li>
+            </ul>
+            <div class="nav-left">
+                <div class="user-role-toggle">
+                    <span class="role-btn active">عميل</span>
+                    <span class="role-btn">مقدم خدمة</span>
+                    <span class="role-btn">إدارة</span>
+                </div>
+                <a href="#" class="icon-btn"><i class="fa-regular fa-bell"></i></a>
+                <a href="../pages/login.html" class="login-button"><i class="fa-regular fa-user"></i> دخول</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="worker-details-container">
+        <div class="breadcrumb">
+            <a href="index.html">الرئيسية</a> / 
+            <a href="search.html">البحث</a> / 
+            <span id="breadcrumb-name">أحمد حسن</span>
+        </div>
+
+        <section class="worker-hero-card">
+            <div class="worker-hero-info">
+                <div class="worker-avatar">
+                    <img id="worker-img" src="../customer/assests/images/كهربائي.jpeg" alt="فني">
+                    <span class="online-indicator"></span>
+                </div>
+                <div class="worker-meta">
+                    <div class="worker-title-badge">
+                        <h1 id="worker-name">أحمد حسن</h1>
+                        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> موثوق</span>
+                    </div>
+                    <p id="worker-job" class="worker-specialty">كهربائي منازل وتأسيس شقق</p>
+                    <p class="worker-location"><i class="fa-solid fa-location-dot"></i> مدينة نصر, القاهرة</p>
+                    <div class="worker-stats-row">
+                        <span><i class="fa-solid fa-star star-icon"></i> <strong id="worker-rating">4.9</strong></span>
+                        <span><i class="fa-solid fa-briefcase"></i> سنوات الخبرة 6</span>
+                        <span><i class="fa-solid fa-square-check"></i> خدمة مكتملة 140</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="worker-booking-box">
+                <div class="price-header">
+                    <span class="price-label">سعر زيارة المعاينة</span>
+                    <span id="worker-price" class="price-amount">200 ج.م</span>
+                </div>
+                <button type="button" class="btn-primary-action"><i class="fa-solid fa-calendar-check"></i> احجز ميعاد الآن</button>
+                <button type="button" class="btn-secondary-action"><i class="fa-brands fa-whatsapp"></i> تواصل عبر الواتساب</button>
+            </div>
+        </section>
+
+        <div class="details-content-grid">
+            <div class="details-main-column">
+                <section class="details-card">
+                    <h2><i class="fa-solid fa-user-gear"></i> نبذة عن الفني</h2>
+                    <p>متخصص في جميع أعمال الكهرباء المنزلية والتأسيس، صيانة الأعطال المفاجئة، تركيب وإصلاح اللوحات، وتوزيع الإضاءة الحديثة. خبرة أكثر من 6 سنوات في تنفيذ المشروعات السكنية والتجارية بدقة وأمان عالي.</p>
+                </section>
+
+                <section class="details-card">
+                    <h2><i class="fa-solid fa-list-check"></i> الخدمات المقدمة</h2>
+                    <ul class="services-list">
+                        <li><i class="fa-solid fa-check"></i> تأسيس شبكات الكهرباء للشقق والفيلات</li>
+                        <li><i class="fa-solid fa-check"></i> تركيب وإصلاح المفاتيح والبرايز واللوحات</li>
+                        <li><i class="fa-solid fa-check"></i> صيانة كشوفات الأعطال والماس الكهربائي</li>
+                        <li><i class="fa-solid fa-check"></i> تركيب النجف والإضاءة الديكورية (بيت نور/Spots)</li>
+                    </ul>
+                </section>
+
+                <section class="details-card">
+                    <h2><i class="fa-solid fa-images"></i> معرض الأعمال السابقة</h2>
+                    <div class="portfolio-grid">
+                        <img src="../customer/assests/images/كهربائي.jpeg" alt="عمل 1">
+                        <img src="../customer/assests/images/hero.png" alt="عمل 2">
+                    </div>
+                </section>
+            </div>
+
+            <div class="details-sidebar-column">
+                <section class="details-card">
+                    <h2><i class="fa-solid fa-star"></i> تقييمات العملاء</h2>
+                    <div class="reviews-list">
+                        <div class="review-item">
+                            <div class="review-header">
+                                <strong>محمود طارق</strong>
+                                <span class="review-stars">⭐⭐⭐⭐⭐</span>
+                            </div>
+                            <span class="review-date">منذ 3 أيام</span>
+                            <p>فني ممتاز ومحترم جداً، وصل في الميعاد بالضبط واكتشف عطل الماس الكهربائي وسلّم الشغل نظيف.</p>
+                        </div>
+                        <div class="review-item">
+                            <div class="review-header">
+                                <strong>سارة أحمد</strong>
+                                <span class="review-stars">⭐⭐⭐⭐⭐</span>
+                            </div>
+                            <span class="review-date">منذ أسبوع</span>
+                            <p>شغله سريع ومتقن والأسعار محددة ومناسبة. أنصح بالتعامل معاه.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div> 
+    </main> 
+ <script src="js/worker-details.js"></script>
+</body>
+</html>
