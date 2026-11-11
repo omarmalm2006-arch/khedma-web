@@ -16,7 +16,7 @@
         <nav class="navbar">
             <div class="nav-right">
                 <a href="index.html" class="logo">
-                    <span class="logo-icon"><i class="fa-solid fa-house-chimney-user"></i></span>
+                    <span class="logo-icon"><img src="assests/icons/logo.svg" alt="logo"></span>
                     <div class="logo-text">
                         <span class="brand-name">خدمة</span>
                         <span class="brand-tagline">كل بيت يستاهل حد أمين</span>
@@ -27,7 +27,7 @@
             <ul class="nav-links">
                 <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> الرئيسية</a></li>
                 <li><a href="search.html"><i class="fa-solid fa-magnifying-glass"></i> ابحث عن فني</a></li>
-                <li><a href="#categories"><i class="fa-regular fa-heart"></i> المفضلة <span class="badge">1</span></a></li>
+                <li><a href="#"><i class="fa-regular fa-heart"></i> المفضلة <span class="badge">1</span></a></li>
             </ul>
 
             <div class="nav-left">
@@ -37,7 +37,7 @@
                     <span class="role-btn">إدارة</span>
                 </div>
                 <a href="#" class="icon-btn"><i class="fa-regular fa-bell"></i></a>
-                <a href="#" class="login-button"><i class="fa-regular fa-user"></i> دخول</a>
+                <a href="../pages/login.html" class="login-button"><i class="fa-regular fa-user"></i> دخول</a>
             </div>
         </nav>
     </header>
@@ -45,6 +45,21 @@
     <main>
         <section class="hero" id="home">
             <div class="hero-container">
+                <div class="hero-image">
+                    <div class="verified-badge">
+                        <div class="verified-icon"><i class="fa-solid fa-circle-check"></i></div>
+                        <div class="verified-text">
+                            <strong>تم التحقق من الفنيين</strong>
+                            <small>من الهوية والخبرة</small>
+                        </div>
+                    </div>
+                    <div class="stat-badge">
+                        <strong>+2,400</strong>
+                        <small>عملية صيانة ناجحة</small>
+                    </div>
+                    <img src="assests/images/hero.png" alt="فني خدمة">
+                </div>
+
                 <div class="hero-content">
                     <span class="hero-badge">● بيتك في أيد أمينة</span>
                     <h1>لما البيت يحتاج،<br>خدمة توصّلك بالصح.</h1>
@@ -65,21 +80,6 @@
                         <span><i class="fa-solid fa-star"></i> تقييمات حقيقية</span>
                         <span><i class="fa-solid fa-shield-halved"></i> أسعار محددة</span>
                     </div>
-                </div>
-
-                <div class="hero-image">
-                    <div class="verified-badge">
-                        <div class="verified-icon"><i class="fa-solid fa-circle-check"></i></div>
-                        <div class="verified-text">
-                            <strong>تم التحقق من الفنيين</strong>
-                            <small>من الهوية والخبرة</small>
-                        </div>
-                    </div>
-                    <div class="stat-badge">
-                        <strong>+2,400</strong>
-                        <small>عملية صيانة ناجحة</small>
-                    </div>
-                    <img src="assests/images/hero.jpeg" alt="فني خدمة">
                 </div>
             </div>
         </section>
@@ -134,6 +134,7 @@
                 </div>
 
                 <div class="workers-grid">
+                    <!-- 1. أحمد حسن -->
                     <div class="worker-card">
                         <div class="card-head">
                             <span class="price-text">يبدأ من <strong>200 ج.م</strong></span>
@@ -153,10 +154,11 @@
                         </div>
                         <div class="card-action">
                             <span class="available-status">● متاح دلوقتي</span>
-                            <a href="search.html" class="profile-link">عرض الملف ←</a>
+                            <a href="worker-details.html" onclick="saveWorkerData('أحمد حسن', 'كهربائي منازل', '200', 'assests/images/كهربائي.jpeg', '4.9')" class="profile-link">عرض الملف ←</a>
                         </div>
                     </div>
 
+                    <!-- 2. محمد علي -->
                     <div class="worker-card">
                         <div class="card-head">
                             <span class="price-text">يبدأ من <strong>180 ج.م</strong></span>
@@ -176,10 +178,11 @@
                         </div>
                         <div class="card-action">
                             <span class="available-status">● متاح دلوقتي</span>
-                            <a href="search.html" class="profile-link">عرض الملف ←</a>
+                            <a href="worker-details.html" onclick="saveWorkerData('محمد علي', 'سباكة وصيانة', '180', 'assests/images/سباك.jpeg', '4.8')" class="profile-link">عرض الملف ←</a>
                         </div>
                     </div>
 
+                    <!-- 3. حسام نبيل -->
                     <div class="worker-card">
                         <div class="card-head">
                             <span class="price-text">يبدأ من <strong>250 ج.م</strong></span>
@@ -199,7 +202,7 @@
                         </div>
                         <div class="card-action">
                             <span class="available-status">● مشغول حالياً</span>
-                            <a href="search.html" class="profile-link">عرض الملف ←</a>
+                            <a href="worker-details.html" onclick="saveWorkerData('حسام نبيل', 'أثاث ونجارة', '250', 'assests/images/نجار.jpeg', '4.7')" class="profile-link">عرض الملف ←</a>
                         </div>
                     </div>
                 </div>
@@ -215,7 +218,7 @@
                         <p>وصل اسمك لأكبر عدد من العملاء وسجل شغلك معنا بآلية منظمة.</p>
                     </div>
                     <div class="cta-action">
-                        <a href="#" class="cta-btn">انضم كـفني في خدمة ←</a>
+                        <a href="../pages/register.html" class="cta-btn">انضم كـفني في خدمة ←</a>
                     </div>
                 </div>
             </div>

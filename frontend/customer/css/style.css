@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f7faf8;
+    background-color: #f7fafc;
     color: #1f2937;
     line-height: 1.6;
 }
@@ -16,16 +16,16 @@ a {
 }
 
 .top-bar {
-    background-color: #f1f8f5;
+    background-color: #eef5fc;
     text-align: center;
     padding: 8px 15px;
     font-size: 13px;
-    color: #07583f;
-    border-bottom: 1px solid #e2eee8;
+    color: #0866c6;
+    border-bottom: 1px solid #d5e6f8;
 }
 
 .top-bar a {
-    color: #07583f;
+    color: #0866c6;
     font-weight: bold;
     text-decoration: underline;
     margin-right: 5px;
@@ -61,9 +61,9 @@ header {
 }
 
 .logo-icon {
-    width: 38px;
-    height: 38px;
-    background-color: #07583f;
+    width: 50px;
+    height: 50px;
+    background-color: white;
     color: white;
     border-radius: 10px;
     display: flex;
@@ -75,7 +75,7 @@ header {
 .brand-name {
     font-size: 22px;
     font-weight: 800;
-    color: #07583f;
+    color: #0866c6;
     display: block;
     line-height: 1;
 }
@@ -106,12 +106,12 @@ header {
 }
 
 .nav-links a.active, .nav-links a:hover {
-    background-color: #eaf4f0;
-    color: #07583f;
+    background-color: #eef5fc;
+    color: #0866c6;
 }
 
 .badge {
-    background-color: #07583f;
+    background-color: #0866c6;
     color: white;
     font-size: 11px;
     padding: 2px 6px;
@@ -142,7 +142,7 @@ header {
 
 .role-btn.active {
     background-color: #ffffff;
-    color: #07583f;
+    color: #0866c6;
     font-weight: bold;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
@@ -160,7 +160,7 @@ header {
 }
 
 .login-button {
-    background-color: #07583f;
+    background-color: #0866c6;
     color: white;
     padding: 8px 18px;
     border-radius: 8px;
@@ -178,15 +178,15 @@ header {
 }
 
 .hero-container {
-   background: linear-gradient(135deg, #07583f 0%, #043d2c 100%);
+    background: linear-gradient(135deg, #0866c6 0%, #05417e 100%);
     border-radius: 24px;
     display: flex;
-    flex-direction: row-reverse; 
+    flex-direction: row-reverse;
     align-items: center;
     overflow: hidden;
     color: white;
     min-height: 440px;
-    box-shadow: 0 10px 25px rgba(7, 88, 63, 0.15);
+    box-shadow: 0 10px 25px rgba(8, 102, 198, 0.15);
 }
 
 .hero-content {
@@ -212,7 +212,7 @@ header {
 }
 
 .hero-content p {
-    color: #d1e5dc;
+    color: #d6e8fc;
     font-size: 15px;
     line-height: 1.7;
     margin-bottom: 30px;
@@ -249,7 +249,7 @@ header {
 }
 
 .hero-search-btn {
-    background-color: #043d2c;
+    background-color: #05417e;
     color: white;
     border: none;
     padding: 12px 20px;
@@ -264,7 +264,7 @@ header {
 }
 
 .hero-search-btn:hover {
-    background-color: #02271c;
+    background-color: #032b53;
 }
 
 .hero-features {
@@ -272,7 +272,7 @@ header {
     gap: 15px;
     margin-top: 25px;
     font-size: 12px;
-    color: #d1e5dc;
+    color: #d6e8fc;
 }
 
 .hero-image {
@@ -289,9 +289,9 @@ header {
 }
 
 .verified-badge {
-   position: absolute;
+    position: absolute;
     bottom: 30px;
-    left: 30px; 
+    left: 30px;
     right: auto;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(5px);
@@ -320,11 +320,11 @@ header {
 }
 
 .stat-badge {
-   position: absolute;
+    position: absolute;
     top: 30px;
-    right: 30px; 
+    right: 30px;
     left: auto;
-    background: #07583f;
+    background: #0866c6;
     color: white;
     padding: 8px 14px;
     border-radius: 12px;
@@ -339,7 +339,7 @@ header {
 
 .stat-badge small {
     font-size: 9px;
-    color: #d1e5dc;
+    color: #d6e8fc;
 }
 
 .section-container {
@@ -357,7 +357,7 @@ header {
 
 .sub-title {
     font-size: 13px;
-    color: #07583f;
+    color: #0866c6;
     font-weight: 600;
     display: block;
     margin-bottom: 4px;
@@ -369,7 +369,7 @@ header {
 }
 
 .view-all-link {
-    color: #07583f;
+    color: #0866c6;
     font-size: 14px;
     font-weight: 600;
 }
@@ -395,7 +395,7 @@ header {
 
 .category-card:hover {
     transform: translateY(-5px);
-    border-color: #07583f;
+    border-color: #0866c6;
     box-shadow: 0 8px 20px rgba(0,0,0,0.04);
 }
 
@@ -409,7 +409,7 @@ header {
     font-size: 20px;
 }
 
-.blue-bg { background: #e0f2fe; color: #0284c7; }
+.blue-bg { background: #eef5fc; color: #0866c6; }
 .yellow-bg { background: #fef3c7; color: #d97706; }
 .orange-bg { background: #ffedd5; color: #ea580c; }
 .purple-bg { background: #f3e8ff; color: #9333ea; }
@@ -422,7 +422,7 @@ header {
 }
 
 .workers {
-    background-color: #f3f6f4;
+    background-color: #f1f6fb;
 }
 
 .workers-grid {
@@ -459,7 +459,7 @@ header {
 }
 
 .price-text strong {
-    color: #07583f;
+    color: #0866c6;
     font-size: 15px;
 }
 
@@ -508,7 +508,7 @@ header {
 
 .job-tag {
     font-size: 12px;
-    color: #07583f;
+    color: #0866c6;
     font-weight: 600;
 }
 
@@ -543,7 +543,7 @@ header {
 
 .profile-link {
     font-size: 13px;
-    color: #07583f;
+    color: #0866c6;
     font-weight: bold;
 }
 
@@ -552,8 +552,8 @@ header {
 }
 
 .cta-box {
-    background: #eef7f3;
-    border: 1px dashed #07583f;
+    background: #eef5fc;
+    border: 1px dashed #0866c6;
     border-radius: 20px;
     padding: 35px 45px;
     display: flex;
@@ -563,7 +563,7 @@ header {
 
 .cta-subtitle {
     font-size: 12px;
-    color: #07583f;
+    color: #0866c6;
     font-weight: bold;
 }
 
@@ -579,7 +579,7 @@ header {
 }
 
 .cta-btn {
-    background-color: #07583f;
+    background-color: #0866c6;
     color: white;
     padding: 12px 24px;
     border-radius: 10px;

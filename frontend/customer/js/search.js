@@ -6,3 +6,7 @@ window.addEventListener('DOMContentLoaded', () => {
         console.log("المهنة المطلوبة هي: " + selectedJob);
     }
 });
+function saveWorkerData(name, job, price, img, rating) {
+    const worker = { name, job, price, img, rating };
+    sessionStorage.setItem('selectedWorker', JSON.stringify(worker));
+}
