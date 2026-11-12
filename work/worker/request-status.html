@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> خدمة</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="request-status.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a class="brand" href="index.html">
+       <img src="assets/logo.svg" alt="Khedma Logo">
+</a>
+        <nav>
+            <a href="index.html">الرئيسية</a>
+            <a href="contact.html">ابحث عن فني</a>
+            <a href="contact.html">تواصل معنا</a>
+        </nav>
+    </header>
+
+    <main class="page">
+
+        <div class="top-row">
+            <div class="tabs">
+                <a href="worker-register.html">طلب جديد</a>
+                <a href="request-status.html" class="active">حالة الطلب</a>
+            </div>
+
+            <label class="preview">
+                معاينة الحالة:
+                <select id="statusSelect">
+                    <option value="pending">قيد المراجعة</option>
+                    <option value="approved">تمت الموافقة</option>
+                    <option value="rejected">مرفوض</option>
+                </select>
+            </label>
+        </div>
+
+        <section class="box">
+            <h2 class="small-title">مراحل الموافقة على الطلب</h2>
+            <div class="steps" id="steps"></div>
+        </section>
+
+        <section class="box status-box" id="statusBox">
+            <div class="banner">
+                <div class="banner-icon" id="icon"></div>
+
+                <div class="banner-text">
+                    <span class="badge" id="badge"></span>
+                    <h1 id="title"></h1>
+                    <p id="subtitle"></p>
+                </div>
+
+                <div class="req-number">
+                    رقم الطلب: <b id="reqNumber"></b>
+                </div>
+            </div>
+
+            <div class="body">
+                <div class="notice" id="notice">
+                    <b id="noticeTitle"></b>
+                    <p id="noticeText"></p>
+                </div>
+
+                <div class="summary">
+                    <div class="summary-head">
+                        <b>تفاصيل الطلب المسجل</b>
+                        <span id="date"></span>
+                    </div>
+
+                    <div class="grid">
+                        <div>
+                            <small>اسم العامل</small>
+                            <b id="fName"></b>
+                        </div>
+
+                        <div>
+                            <small>المهنة والتخصص</small>
+                            <b id="fJob" class="blue"></b>
+                        </div>
+
+                        <div>
+                            <small>رقم الهاتف</small>
+                            <b id="fPhone" dir="ltr"></b>
+                        </div>
+
+                        <div>
+                            <small>المنطقة</small>
+                            <b id="fRegion"></b>
+                        </div>
+
+                        <div>
+                            <small>سنوات الخبرة</small>
+                            <b id="fExp"></b>
+                        </div>
+
+                        <div>
+                            <small>سعر بداية الخدمة</small>
+                            <b id="fPrice" class="green"></b>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="actions" id="actions"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+
+        <span>
+            <a href="#">سياسة الخصوصية</a>
+            <a href="#">الشروط والأحكام</a>
+            <a href="#">المساعدة</a>
+        </span>
+    </footer>
+
+    <script src="request-status.js"></script>
+</body>
+</html>
