@@ -1,6 +1,8 @@
 
 <?php
 
+session_start();
+
 header("Content-Type: application/json; charset=UTF-8");
 
 require_once __DIR__ . "/../config/db.php";
@@ -29,6 +31,17 @@ function respond(
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     respond(405, "Method not allowed.");
+}
+// 2. Check CSRF token
+
+$csrfToken = $_POST["csrf_token"] ?? "";
+
+if (
+    !isset($_SESSION["csrf_token"]) ||
+    !is_string($csrfToken) ||
+    !hash_equals($_SESSION["csrf_token"], $csrfToken)
+) {
+    respond(403, "Invalid security token. Refresh the page.");
 }
 
 // 2. Get raw input data
@@ -113,7 +126,6 @@ if (
 if (!preg_match('/^\+?[0-9]{10,15}$/D', $phone)) {
     respond(422, "Please enter a valid phone number.");
 }
-
 // Password validation
 
 if (strlen($password) < 8) {

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- التوكن هيتحط هنا من الباك إند (لازم نتفق عليه) -->
+    <meta name="csrf-token" content="" />
+
+    <title>Khedma - إنشاء حساب</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style/style.css" />
+    <link rel="stylesheet" href="../style/register.css" />
+  </head>
+
+  <body class="register-page">
+    <header class="site-header">
+      <div class="logo">
+        <img src="../assets/icon/logo.svg" alt="Khedma Logo" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">الرئيسية</a></li>
+          <li><a href="#">ابحث عن فني</a></li>
+          <li><a href="#">تواصل معنا</a></li>
+        </ul>
+      </nav>
+      <div class="header-spacer"></div>
+    </header>
+
+    <main class="main-content">
+      <section class="right-section">
+        <div class="robot">
+          <img src="../assets/img/robot.png" alt="Khedma robot" />
+        </div>
+        <div class="right">
+          <img src="../assets/icon/logo.svg" alt="Khedma Logo" class="white-logo" />
+          <div class="welcome-text">
+            <h2>أهلاً بيك معانا<span class="dot">.</span></h2>
+            <p>سجّل حسابك وابدأ<br />مع خدمة</p>
+            <svg class="swoosh" viewBox="0 0 160 20" aria-hidden="true">
+              <path d="M2 17 C 45 5, 105 2, 158 5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section class="login-form-container">
+        <div class="back-link">
+          <span class="status-dot"></span>
+          <p>اختيار نوع الحساب</p>
+        </div>
+
+        <div class="form-header">
+          <h2>إنشاء حساب</h2>
+          <p>املا بياناتك عشان تبدأ معانا.</p>
+        </div>
+
+        <!-- اختيار نوع الحساب -->
+        <div class="role-switch" role="tablist">
+          <button type="button" class="role-btn active" data-role="customer" role="tab">عميل</button>
+          <button type="button" class="role-btn" data-role="worker" role="tab">فني</button>
+        </div>
+
+        <div id="form-alert" class="form-alert" role="alert" hidden></div>
+
+        <form id="register-form" class="register-form" method="post" novalidate>
+          <input type="hidden" name="role" id="role" value="customer" />
+
+          <div class="field">
+            <label for="full_name">الاسم بالكامل</label>
+            <input type="text" id="full_name" name="full_name" autocomplete="name" required />
+            <small class="error-msg"></small>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="email">البريد الإلكتروني</label>
+              <input type="email" id="email" name="email" placeholder="name@example.com" autocomplete="email" required />
+              <small class="error-msg"></small>
+            </div>
+            <div class="field">
+              <label for="phone">رقم الموبايل</label>
+              <input type="tel" id="phone" name="phone" placeholder="01XXXXXXXXX" autocomplete="tel" required />
+              <small class="error-msg"></small>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="password">كلمة المرور</label>
+              <input type="password" id="password" name="password" placeholder="8 حروف وأرقام على الأقل" autocomplete="new-password" required />
+              <small class="error-msg"></small>
+            </div>
+            <div class="field">
+              <label for="confirm_password">تأكيد كلمة المرور</label>
+              <input type="password" id="confirm_password" name="confirm_password" autocomplete="new-password" required />
+              <small class="error-msg"></small>
+            </div>
+          </div>
+
+          <div id="worker-fields" class="worker-fields" hidden>
+            <div class="field-row">
+              <div class="field">
+                <label for="category_id">التخصص</label>
+                <select id="category_id" name="category_id" required disabled>
+                  <option value="">اختار التخصص</option>
+                </select>
+                <small class="error-msg"></small>
+              </div>
+              <div class="field">
+                <label for="national_id">الرقم القومي</label>
+                <input type="text" id="national_id" name="national_id" inputmode="numeric" maxlength="14" placeholder="14 رقم" required disabled />
+                <small class="error-msg"></small>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="location">المنطقة / المحافظة</label>
+                <input type="text" id="location" name="location" required disabled />
+                <small class="error-msg"></small>
+              </div>
+              <div class="field">
+                <label for="experience_years">سنين الخبرة</label>
+                <input type="number" id="experience_years" name="experience_years" min="0" step="1" required disabled />
+                <small class="error-msg"></small>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="bio">نبذة عنك <span class="optional">(اختياري)</span></label>
+              <textarea id="bio" name="bio" rows="3" disabled></textarea>
+              <small class="error-msg"></small>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submit-btn">
+            <span>إنشاء الحساب</span>
+            <img src="../assets/icon/move-left.svg" alt="" />
+          </button>
+        </form>
+
+        <div class="signup-link">
+          <p>
+            عندك حساب بالفعل؟
+            <a href="login.html">سجّل دخول</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>جميع الحقوق محفوظة <span dir="ltr">© 2026 Khedma</span></p>
+      <ul>
+        <li><a href="#">سياسة الخصوصية</a></li>
+        <li><a href="#">الشروط والأحكام</a></li>
+        <li><a href="#">المساعدة</a></li>
+      </ul>
+    </footer>
+
+    <script src="../js/register.js"></script>
+  </body>
+</html>
