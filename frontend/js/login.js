@@ -1,77 +1,133 @@
+
 /* =========================================================
-   Khedma - Login  (متظبط على login.php بتاع الباك إند)
+   Khedma - Login
+   Connected to backend/auth/login.php
 ========================================================= */
 
 const CONFIG = {
   API_URL: "../../backend/auth/login.php",
   CSRF_URL: "../../backend/auth/csrf-token.php",
   SUCCESS_URL: "../index.html",
+  WORKER_URL: "../worker/request-status.html",
 };
 
 const form = document.getElementById("login-form");
 const alertBox = document.getElementById("form-alert");
 const submitBtn = form.querySelector(".submit-btn");
 
-/* ---------- رسائل الباك إند (إنجليزي) -> عربي ---------- */
+/* ---------- Backend messages -> Arabic ---------- */
+
 const SERVER_MSG = {
-  "Email and password are required": "من فضلك اكتب البريد الإلكتروني وكلمة المرور.",
-  "Invalid email format": "صيغة البريد الإلكتروني غير صحيحة.",
-  "Invalid email or password": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
-  "Your account is not active": "حسابك لسه مش مفعّل أو متوقف حاليًا.",
-  "Invalid security token. Refresh the page.": "انتهت صلاحية الجلسة الأمنية. حدّث الصفحة وحاول تاني.",
-  "Something went wrong. Please try again later.": "حصلت مشكلة في السيرفر، حاول تاني.",
+  "Email and password are required":
+    "من فضلك اكتب البريد الإلكتروني وكلمة المرور.",
+
+  "Invalid email format":
+    "صيغة البريد الإلكتروني غير صحيحة.",
+
+  "Invalid email or password":
+    "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+
+  "Your account is not active":
+    "حسابك لسه مش مفعّل أو متوقف حاليًا.",
+
+  "Worker profile not found":
+    "ملف العامل غير موجود.",
+
+  "Invalid security token. Refresh the page.":
+    "انتهت صلاحية الجلسة الأمنية. حدّث الصفحة وحاول تاني.",
+
+  "Something went wrong. Please try again later.":
+    "حصلت مشكلة في السيرفر، حاول تاني.",
 };
 
-/* ---------- CSRF ----------
-   login.php بيقرا التوكن من جسم الـ JSON (csrf_token) ويقارنه بالـ session،
-   فلازم نجيبه من csrf-token.php بنفس الـ session (credentials: include). */
+/* ---------- CSRF Token ---------- */
+
 let csrfToken = "";
+
 async function ensureCsrfToken(force = false) {
-  if (csrfToken && !force) return csrfToken;
+  if (csrfToken && !force) {
+    return csrfToken;
+  }
+
   csrfToken = "";
+
   try {
     const res = await fetch(CONFIG.CSRF_URL, {
       credentials: "include",
       cache: "no-store",
-      headers: { Accept: "application/json" },
+      headers: {
+        Accept: "application/json",
+      },
     });
-    if (!res.ok) return "";
+
+    if (!res.ok) {
+      return "";
+    }
+
     const data = await res.json();
     csrfToken = data.csrf_token || "";
-  } catch (e) {}
+
+  } catch (error) {
+    console.error("CSRF Error:", error);
+  }
+
   return csrfToken;
 }
 
-function showAlert(msg, type) {
-  alertBox.textContent = msg;
+/* ---------- Show Alert ---------- */
+
+function showAlert(message, type) {
+  alertBox.textContent = message;
   alertBox.className = "form-alert " + type;
   alertBox.hidden = false;
 }
 
+/* ---------- Login Form ---------- */
+
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
+
   alertBox.hidden = true;
 
   const email = form.elements.email.value.trim();
   const password = form.elements.password.value;
 
+  /* Validate required fields */
+
   if (!email || !password) {
-    showAlert("من فضلك اكتب البريد الإلكتروني وكلمة المرور.", "error");
+    showAlert(
+      "من فضلك اكتب البريد الإلكتروني وكلمة المرور.",
+      "error"
+    );
     return;
   }
 
+  /* Validate email format */
+
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    showAlert("صيغة البريد الإلكتروني غير صحيحة.", "error");
+    showAlert(
+      "صيغة البريد الإلكتروني غير صحيحة.",
+      "error"
+    );
     return;
   }
 
   submitBtn.disabled = true;
+
   try {
+    /* Get CSRF Token */
+
     const token = await ensureCsrfToken();
+
     if (!token) {
-      showAlert("مقدرناش نجيب التوكن الأمني. حدّث الصفحة وحاول تاني.", "error");
+      showAlert(
+        "مقدرناش نجيب التوكن الأمني. حدّث الصفحة وحاول تاني.",
+        "error"
+      );
       return;
     }
+
+    /* Send Login Request */
 
     const res = await fetch(CONFIG.API_URL, {
       method: "POST",
@@ -80,24 +136,63 @@ form.addEventListener("submit", async (e) => {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify({ email, password, csrf_token: token }),
+      body: JSON.stringify({
+        email,
+        password,
+        csrf_token: token,
+      }),
     });
 
     const data = await res.json().catch(() => null);
 
+    /* Successful Login */
+
     if (res.ok && data && data.success) {
-      showAlert("تم تسجيل الدخول بنجاح.", "success");
-      setTimeout(() => (location.href = CONFIG.SUCCESS_URL), 800);
+      showAlert(
+        "تم تسجيل الدخول بنجاح.",
+        "success"
+      );
+
+      const userRole = data.user?.role;
+
+      let redirectUrl = CONFIG.SUCCESS_URL;
+
+      /* Redirect Worker */
+
+      if (userRole === "worker") {
+        redirectUrl = CONFIG.WORKER_URL;
+      }
+
+      /* Redirect after success message */
+
+      setTimeout(() => {
+        window.location.href = redirectUrl;
+      }, 800);
+
       return;
     }
 
-    if (res.status === 403) csrfToken = ""; // التوكن اتغيّر/انتهى، هنجيب واحد جديد في المحاولة الجاية
+    /* Handle Failed Login */
+
+    if (res.status === 403) {
+      csrfToken = "";
+    }
+
+    const errorMessage =
+      SERVER_MSG[data?.message] ||
+      data?.message ||
+      "حصلت مشكلة، حاول تاني.";
+
+    showAlert(errorMessage, "error");
+
+  } catch (error) {
+    console.error("Login Error:", error);
+
     showAlert(
-      SERVER_MSG[data?.message] || (data && data.message) || "حصلت مشكلة، حاول تاني.",
+      "مشكلة في الاتصال بالسيرفر. اتأكد من النت وحاول تاني.",
       "error"
     );
-  } catch (err) {
-    showAlert("مشكلة في الاتصال بالسيرفر. اتأكد من النت وحاول تاني.", "error");
+
   } finally {
     submitBtn.disabled = false;
   }

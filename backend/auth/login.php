@@ -1,27 +1,10 @@
 
 <?php
 
-//declare(strict_types=1);
-
-// Start session
 session_start();
 
-// Response type
 header("Content-Type: application/json; charset=UTF-8");
 
-// Allow POST requests only
-if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    http_response_code(405);
-
-    echo json_encode([
-        "success" => false,
-        "message" => "Method not allowed"
-    ]);
-
-    exit;
-}
-
-// Database connection
 require_once __DIR__ . "/../config/db.php";
 
 // Helper function for JSON responses
@@ -44,8 +27,12 @@ function respond(
     exit;
 }
 
-// Get input data
-// دي بتحول JSON إلى PHP Associative Array 
+// Allow POST requests only
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    respond(405, "Method not allowed");
+}
+
+// Get JSON input
 $input = json_decode(
     file_get_contents("php://input"),
     true
@@ -93,7 +80,7 @@ try {
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Check if user exists and password is correct
+    // Check user and password
     if (!$user || !password_verify($password, $user["password_hash"])) {
         respond(401, "Invalid email or password");
     }
@@ -101,6 +88,33 @@ try {
     // Check account status
     if ($user["account_status"] !== "active") {
         respond(403, "Your account is not active");
+    }
+
+    // Default approval status
+    $approvalStatus = null;
+
+    // If user is a worker, get approval status
+    if ($user["role"] === "worker") {
+
+        $statusSql = "SELECT approval_status
+                      FROM worker_profiles
+                      WHERE user_id = :user_id
+                      LIMIT 1";
+
+        $statusStmt = $pdo->prepare($statusSql);
+
+        $statusStmt->execute([
+            ":user_id" => $user["id"]
+        ]);
+
+        $workerProfile = $statusStmt->fetch(PDO::FETCH_ASSOC);
+
+        // Worker must have a profile
+        if (!$workerProfile) {
+            respond(403, "Worker profile not found");
+        }
+
+        $approvalStatus = $workerProfile["approval_status"];
     }
 
     // Prevent session fixation
@@ -118,7 +132,8 @@ try {
 
     // Successful login
     respond(200, "Login successful", [
-        "user" => $user
+        "user" => $user,
+        "approval_status" => $approvalStatus
     ]);
 } catch (PDOException $e) {
 
