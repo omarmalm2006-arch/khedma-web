@@ -1,17 +1,4 @@
 
-// بيانات الطلب (تجريبية)
-const requestData = {
-    number: "REQ-84920",
-    date: "تاريخ التقديم: 10 نوفمبر 2026",
-    name: " محمد احمد",
-    job: "فني كهرباء",
-    phone: "+20 101 234 5678",
-    region: "القاهرة - مدينة نصر",
-    experience: "6 سنوات",
-    price: "150 جنيه",
-    rejectReason: "صورة الرقم القومي غير واضحة. يُرجى رفع صور واضحة لأعمالك السابقة لاستكمال عملية المراجعة."
-};
-
 // إعدادات الحالات
 const states = {
     pending: {
@@ -64,7 +51,6 @@ const states = {
         title: "نأسف، لم تتم الموافقة على طلبك",
         subtitle: "يُرجى مراجعة ملاحظات الإدارة وتحديث المستندات المطلوبة.",
         noticeTitle: "سبب الرفض:",
-        noticeText: "",
         steps: [
             ["done", "✓", "تم تقديم الطلب", "تم الإرسال بنجاح", "#0866C6"],
             ["done", "✓", "مراجعة الإدارة", "اكتملت المراجعة", "#ef4444"],
@@ -86,20 +72,31 @@ const links = {
 // الوصول لعناصر HTML
 const $ = (id) => document.getElementById(id);
 
-// تغيير حالة الطلب
-function showStatus(status) {
+// تحويل تاريخ قاعدة البيانات إلى صيغة مقروءة
+function formatDate(dateString) {
+    if (!dateString) return "غير متاح";
+
+    const [datePart] = dateString.split(" ");
+    const [year, month, day] = datePart.split("-");
+
+    return `تاريخ التقديم: ${day}/${month}/${year}`;
+}
+
+// عرض حالة الطلب والبيانات الحقيقية
+function showStatus(status, data) {
     const s = states[status];
 
-    if (!s) return;
+    if (!s) {
+        throw new Error("حالة الطلب غير معروفة: " + status);
+    }
 
-    // تغيير ألوان الصفحة حسب الحالة
+    // تغيير ألوان الصفحة
     const root = document.documentElement.style;
 
     root.setProperty("--accent", s.color);
     root.setProperty("--accent-dark", s.dark);
     root.setProperty("--accent-soft", s.soft);
     root.setProperty("--btn", s.color);
-
     root.setProperty("--banner-bg", s.soft);
     root.setProperty("--banner-text-color", s.dark);
     root.setProperty("--banner-icon-color", s.color);
@@ -110,39 +107,48 @@ function showStatus(status) {
     const statusBox = document.querySelector(".status-box");
 
     if (statusBox) {
-        statusBox.classList.remove(
-            "pending",
-            "approved",
-            "rejected"
-        );
-
+        statusBox.classList.remove("pending", "approved", "rejected");
         statusBox.classList.add(status);
     }
 
-    // تحديث البيانات
+    // بيانات الحالة
     $("icon").textContent = s.icon;
     $("badge").textContent = s.badge;
     $("title").textContent = s.title;
     $("subtitle").textContent = s.subtitle;
-
     $("noticeTitle").textContent = s.noticeTitle;
 
+    // ملاحظة الإدارة عند الرفض
     $("noticeText").textContent =
         status === "rejected"
-            ? requestData.rejectReason
+            ? (data.admin_note || "لم يتم توضيح سبب الرفض. يُرجى التواصل مع الإدارة.")
             : s.noticeText;
 
-    $("reqNumber").textContent = "#" + requestData.number;
-    $("date").textContent = requestData.date;
+    // بيانات الطلب من API
+    $("reqNumber").textContent = "#" + data.request_number;
+    $("date").textContent = formatDate(data.created_at);
 
-    $("fName").textContent = requestData.name;
-    $("fJob").textContent = requestData.job;
-    $("fPhone").textContent = requestData.phone;
-    $("fRegion").textContent = requestData.region;
-    $("fExp").textContent = requestData.experience;
-    $("fPrice").textContent = requestData.price;
+    $("fName").textContent = data.name || "غير متاح";
+    $("fJob").textContent = data.job || "غير محدد";
+    $("fPhone").textContent = data.phone || "غير متاح";
 
-    // تحديث مراحل الطلب
+    const location = [data.location, data.address_details]
+        .filter(Boolean)
+        .join(" - ");
+
+    $("fRegion").textContent = location || "غير محدد";
+
+    $("fExp").textContent =
+        data.experience_years != null
+            ? data.experience_years + " سنوات"
+            : "غير محدد";
+
+    $("fPrice").textContent =
+        data.starting_price != null
+            ? data.starting_price + " جنيه"
+            : "غير محدد";
+
+    // مراحل الطلب
     $("steps").innerHTML = s.steps.map(
         ([cls, mark, label, sub, color]) => `
             <div class="step ${cls}" style="--c:${color}">
@@ -153,7 +159,7 @@ function showStatus(status) {
         `
     ).join("");
 
-    // تحديث الأزرار
+    // الأزرار
     $("actions").innerHTML = "";
 
     s.buttons.forEach(([text, isMain, action]) => {
@@ -164,7 +170,7 @@ function showStatus(status) {
 
         btn.onclick = () => {
             if (action === "refresh") {
-                location.reload();
+                loadRequestStatus();
             } else if (links[action]) {
                 location.href = links[action];
             }
@@ -174,14 +180,40 @@ function showStatus(status) {
     });
 }
 
-// تغيير الحالة من القائمة
-const statusSelect = $("statusSelect");
+// جلب حالة الطلب من Backend
+async function loadRequestStatus() {
+    try {
+        const response = await fetch(
+            "../../backend/auth/get-request-status.php",
+            {
+                method: "GET",
+                credentials: "same-origin",
+                headers: {
+                    "Accept": "application/json"
+                }
+            }
+        );
 
-if (statusSelect) {
-    statusSelect.addEventListener("change", (e) => {
-        showStatus(e.target.value);
-    });
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+            throw new Error(result.message || "تعذر تحميل بيانات الطلب.");
+        }
+
+        // عرض البيانات الحقيقية
+        showStatus(result.data.status, result.data);
+
+    } catch (error) {
+        console.error("Request Status Error:", error);
+
+        $("title").textContent = "تعذر تحميل حالة الطلب";
+        $("subtitle").textContent =
+            "حدثت مشكلة أثناء جلب بياناتك. حاول تحديث الصفحة مرة أخرى.";
+
+        $("noticeTitle").textContent = "تنبيه:";
+        $("noticeText").textContent = error.message;
+    }
 }
 
-// تشغيل الصفحة بالحالة الافتراضية
-showStatus("pending");
+// تشغيل الصفحة
+loadRequestStatus();
