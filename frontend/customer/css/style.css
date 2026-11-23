@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -593,4 +594,33 @@ header {
     .categories-grid { grid-template-columns: repeat(3, 1fr); }
     .workers-grid { grid-template-columns: 1fr; }
     .cta-box { flex-direction: column; text-align: center; gap: 20px; }
+}
+
+/* Dynamic workers loaded from the backend */
+.worker-avatar-placeholder {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    flex: 0 0 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eef5fc;
+    color: #0866c6;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.home-workers-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 28px 16px;
+    color: #6b7280;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+}
+
+.worker-card .card-profile img {
+    flex: 0 0 65px;
 }

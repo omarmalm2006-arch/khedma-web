@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -49,13 +50,13 @@
                     <div class="verified-badge">
                         <div class="verified-icon"><i class="fa-solid fa-circle-check"></i></div>
                         <div class="verified-text">
-                            <strong>تم التحقق من الفنيين</strong>
-                            <small>من الهوية والخبرة</small>
+                            <strong>تمت مراجعة بيانات الفنيين</strong>
+                            <small>يظهر للعملاء الفنيون المقبولون فقط</small>
                         </div>
                     </div>
                     <div class="stat-badge">
-                        <strong>+2,400</strong>
-                        <small>عملية صيانة ناجحة</small>
+                        <strong>خدمة</strong>
+                        <small>فنيون معتمدون لخدمتك</small>
                     </div>
                     <img src="assests/images/hero.png" alt="فني خدمة">
                 </div>
@@ -68,17 +69,17 @@
                     <div class="hero-search">
                         <div class="search-input-group">
                             <i class="fa-solid fa-magnifying-glass"></i>
-                            <input type="text" placeholder="بتدور على إيه؟ سباك، كهربائي...">
+                            <input type="text" id="hero-search-input" placeholder="بتدور على إيه؟ سباك، كهربائي..." aria-label="ابحث عن فني">
                         </div>
-                        <button type="button" onclick="window.location.href='search.html'" class="hero-search-btn">
+                        <button type="button" id="hero-search-btn" class="hero-search-btn">
                             دور على فني <i class="fa-solid fa-arrow-left"></i>
                         </button>
                     </div>
 
                     <div class="hero-features">
-                        <span><i class="fa-solid fa-check"></i> فنيين معتمدين ومقيمين</span>
-                        <span><i class="fa-solid fa-star"></i> تقييمات حقيقية</span>
-                        <span><i class="fa-solid fa-shield-halved"></i> أسعار محددة</span>
+                        <span><i class="fa-solid fa-check"></i> فنيون تمت الموافقة عليهم</span>
+                        <span><i class="fa-solid fa-phone"></i> تواصل مباشر مع الفني</span>
+                        <span><i class="fa-solid fa-shield-halved"></i> بيانات واضحة</span>
                     </div>
                 </div>
             </div>
@@ -109,7 +110,7 @@
                     </a>
                     <a href="search.html?job=نقاش" class="category-card">
                         <div class="icon-box purple-bg"><i class="fa-solid fa-paint-roller"></i></div>
-                        <h3>نظافة</h3>
+                        <h3>نقاشة</h3>
                     </a>
                     <a href="search.html?job=تكييف" class="category-card">
                         <div class="icon-box green-bg"><i class="fa-solid fa-snowflake"></i></div>
@@ -127,84 +128,14 @@
             <div class="section-container">
                 <div class="section-header-flex">
                     <div class="section-title">
-                        <span class="sub-title">أعلى ترشيحات لك</span>
-                        <h2>فنيين عليهم الكلام</h2>
+                        <span class="sub-title">فنيون تمت الموافقة عليهم</span>
+                        <h2>فنيين جاهزين لخدمتك</h2>
                     </div>
                     <a href="search.html" class="view-all-link">شوف الكل ←</a>
                 </div>
 
-                <div class="workers-grid">
-                    <!-- 1. أحمد حسن -->
-                    <div class="worker-card">
-                        <div class="card-head">
-                            <span class="price-text">يبدأ من <strong>200 ج.م</strong></span>
-                            <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
-                        </div>
-                        <div class="card-profile">
-                            <img src="assests/images/كهربائي.jpeg" alt="أحمد حسن">
-                            <div class="profile-details">
-                                <h3>أحمد حسن <span class="online-dot"></span></h3>
-                                <p class="job-tag">كهربائي منازل</p>
-                                <p class="location-tag"><i class="fa-solid fa-location-dot"></i> مدينة نصر، القاهرة</p>
-                            </div>
-                        </div>
-                        <div class="card-stats">
-                            <span><i class="fa-solid fa-star star"></i> <strong>4.9</strong> (128 تقييم)</span>
-                            <span><i class="fa-solid fa-briefcase"></i> 6 سنين خبرة</span>
-                        </div>
-                        <div class="card-action">
-                            <span class="available-status">● متاح دلوقتي</span>
-                            <a href="worker-details.html" onclick="saveWorkerData('أحمد حسن', 'كهربائي منازل', '200', 'assests/images/كهربائي.jpeg', '4.9')" class="profile-link">عرض الملف ←</a>
-                        </div>
-                    </div>
-
-                    <!-- 2. محمد علي -->
-                    <div class="worker-card">
-                        <div class="card-head">
-                            <span class="price-text">يبدأ من <strong>180 ج.م</strong></span>
-                            <button class="like-btn liked"><i class="fa-solid fa-heart"></i></button>
-                        </div>
-                        <div class="card-profile">
-                            <img src="assests/images/سباك.jpeg" alt="محمد علي">
-                            <div class="profile-details">
-                                <h3>محمد علي <span class="online-dot"></span></h3>
-                                <p class="job-tag">سباكة وصيانة</p>
-                                <p class="location-tag"><i class="fa-solid fa-location-dot"></i> المعادي، القاهرة</p>
-                            </div>
-                        </div>
-                        <div class="card-stats">
-                            <span><i class="fa-solid fa-star star"></i> <strong>4.8</strong> (95 تقييم)</span>
-                            <span><i class="fa-solid fa-briefcase"></i> 8 سنين خبرة</span>
-                        </div>
-                        <div class="card-action">
-                            <span class="available-status">● متاح دلوقتي</span>
-                            <a href="worker-details.html" onclick="saveWorkerData('محمد علي', 'سباكة وصيانة', '180', 'assests/images/سباك.jpeg', '4.8')" class="profile-link">عرض الملف ←</a>
-                        </div>
-                    </div>
-
-                    <!-- 3. حسام نبيل -->
-                    <div class="worker-card">
-                        <div class="card-head">
-                            <span class="price-text">يبدأ من <strong>250 ج.م</strong></span>
-                            <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
-                        </div>
-                        <div class="card-profile">
-                            <img src="assests/images/نجار.jpeg" alt="حسام نبيل">
-                            <div class="profile-details">
-                                <h3>حسام نبيل <span class="online-dot"></span></h3>
-                                <p class="job-tag">أثاث ونجارة</p>
-                                <p class="location-tag"><i class="fa-solid fa-location-dot"></i> شبرا الخيمة، القليوبية</p>
-                            </div>
-                        </div>
-                        <div class="card-stats">
-                            <span><i class="fa-solid fa-star star"></i> <strong>4.7</strong> (74 تقييم)</span>
-                            <span><i class="fa-solid fa-briefcase"></i> 5 سنين خبرة</span>
-                        </div>
-                        <div class="card-action">
-                            <span class="available-status">● مشغول حالياً</span>
-                            <a href="worker-details.html" onclick="saveWorkerData('حسام نبيل', 'أثاث ونجارة', '250', 'assests/images/نجار.jpeg', '4.7')" class="profile-link">عرض الملف ←</a>
-                        </div>
-                    </div>
+                <div class="workers-grid" id="home-workers-list" aria-live="polite">
+                    <p class="home-workers-message">جاري تحميل الفنيين...</p>
                 </div>
             </div>
         </section>
